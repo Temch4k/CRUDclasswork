@@ -1,0 +1,40 @@
+<h2 class = "center">User Table</h2>
+<table class="table">
+    <thread>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Zipcode </th>
+            <th>Edit</th>
+            <th>Delte</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% users.forEach(user => { %>
+            <tr>
+                <td>
+                    <a href= "<%=`/users/$user._id` %>">
+                        <%= user.first %>
+                        <%= user.last %>
+                    </a>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.zipCode %>
+                </td>
+                <td>
+                    <a href="<%=`/users/${user._id}/edit` %>">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="<%=`/users/${user._id}delte?_method=DELETE` %>" onclick="return confirm('Are you sure?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            <% })%>
+    </tbody>
+</table>
